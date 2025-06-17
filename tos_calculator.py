@@ -128,4 +128,4 @@ for idx, row in filtered_trades.iterrows():
 for key in all_trades:
     calculate_stats(all_trades[key])
     
-print("Overall Profit and Loss: ", overall_profit_loss)
+print(f"Overall Profit and Loss: {overall_profit_loss:.2f}")
