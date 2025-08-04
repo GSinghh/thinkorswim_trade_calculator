@@ -103,7 +103,8 @@ for idx, row in filtered_trades.iterrows():
     execution_time = row["TIME"]
     description = row["DESCRIPTION"]
     commission = abs(float(row["Misc Fees"])) + abs(float(row["Commissions & Fees"]))
-    cost = float(row["AMOUNT"])
+    cost_before_conversion = row["AMOUNT"]
+    cost = float(cost_before_conversion.replace(',', '') if ',' in cost_before_conversion else cost_before_conversion)
     contract_info = options_pattern.match(description) # Extract information related to option contract
     if not contract_info:
         continue 
